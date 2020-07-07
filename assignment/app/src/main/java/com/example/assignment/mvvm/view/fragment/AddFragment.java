@@ -1,4 +1,4 @@
-package com.example.assignment;
+package com.example.assignment.mvvm.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,12 +7,14 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class StudentListFragment extends Fragment {
-    public StudentListFragment() {
+import com.example.assignment.R;
+
+public class AddFragment extends Fragment {
+    public AddFragment() {
     }
 
-    public static StudentListFragment newInstance(int columnCount) {
-        StudentListFragment fragment = new StudentListFragment();
+    public static AddFragment newInstance(int columnCount) {
+        AddFragment fragment = new AddFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
