@@ -32,13 +32,13 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.studentData = studentList.get(position);
-        holder.tvAge.setText(holder.studentData.getAge());
-        holder.tvName.setText(holder.studentData.getStudentName());
-        holder.tvBloodGroup.setText(holder.studentData.getBloodGroup());
-        holder.tvHeight.setText(holder.studentData.getHeight());
-        holder.tvPerformance.setText(holder.studentData.getPerformance());
-        holder.tvStudentClass.setText(holder.studentData.getStudentClass());
+//        holder.studentData = studentList.get(position);
+//        holder.tvAge.setText(holder.studentData.getAge());
+//        holder.tvName.setText(holder.studentData.getStudentName());
+//        holder.tvBloodGroup.setText(holder.studentData.getBloodGroup());
+//        holder.tvHeight.setText(holder.studentData.getHeight());
+//        holder.tvPerformance.setText(holder.studentData.getPerformance());
+//        holder.tvStudentClass.setText(holder.studentData.getStudentClass());
     }
 
     public void setStudentList(List<StudentModel> studentList) {
@@ -52,7 +52,7 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
 
     @Override
     public int getItemCount() {
-        return studentList.size();
+        return 2;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -77,7 +77,7 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
             tvPerformance = (TextView) itemView.findViewById(R.id.tv_performance);
             ivProfile = (ImageView) itemView.findViewById(R.id.iv_profile);
             itemView.setOnClickListener(v -> {
-                if (listener != null) listener.onItemClick(studentList.get(getAdapterPosition()));
+                if (listener != null) listener.onItemClick(new StudentModel());
             });
         }
 

@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,7 +19,7 @@ import com.example.assignment.mvvm.view.adapter.StudentListAdapter;
 import com.example.assignment.mvvm.viewmodel.StudentViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,6 +33,7 @@ public class StudentListFragment extends Fragment implements StudentListAdapter.
     private StudentListAdapter studentListAdapter;
     private Activity activity;
     private StudentViewModel studentViewModel;
+    private View view;
 
     public StudentListFragment() {
     }
@@ -47,18 +48,19 @@ public class StudentListFragment extends Fragment implements StudentListAdapter.
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_student_list, container, false);
+        view = inflater.inflate(R.layout.fragment_student_list, container, false);
         ButterKnife.bind(this, view);
         return view;
     }
 
-    @Override
+     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         activity = getActivity();
         studentViewModel = ViewModelProviders.of(this).get(StudentViewModel.class);
         rvStudents.setLayoutManager(new LinearLayoutManager(activity));
         studentListAdapter = new StudentListAdapter();
+        studentListAdapter.setStudentList(new ArrayList<>());
         studentListAdapter.setOnItemClickListener(this);
         rvStudents.setAdapter(studentListAdapter);
         setUpObservers();
@@ -69,12 +71,13 @@ public class StudentListFragment extends Fragment implements StudentListAdapter.
     }
 
     @OnClick(R.id.fb_add_student)
-    public void onViewClicked() {
+    public void onViewClicked(View view) {
+        Navigation.findNavController(view).navigate(R.id.action_studentListFragment_to_addFragment);
     }
 
     @Override
     public void onItemClick(StudentModel note) {
-
+        Navigation.findNavController(view).navigate(R.id.action_studentListFragment_to_updateFragment);
     }
 
     @Override

@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.assignment.R;
 
-public class AddFragment extends Fragment {
-    public AddFragment() {
+public class UpdateStudentFragment extends Fragment {
+    public UpdateStudentFragment() {
     }
 
-    public static AddFragment newInstance(int columnCount) {
-        AddFragment fragment = new AddFragment();
+    public static UpdateStudentFragment newInstance(int columnCount) {
+        UpdateStudentFragment fragment = new UpdateStudentFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -28,6 +28,6 @@ public class AddFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_student_list, container, false);
+        return inflater.inflate(R.layout.fragment_update_student, container, false);
     }
 }

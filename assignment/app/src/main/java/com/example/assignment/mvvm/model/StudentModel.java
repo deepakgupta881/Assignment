@@ -7,6 +7,14 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "tb_student")
 public class StudentModel {
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
     private int id;

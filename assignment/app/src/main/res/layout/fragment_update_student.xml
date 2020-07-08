@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -14,6 +15,14 @@
             android:layout_height="120dp"
             android:background="@color/colorPrimaryDark" />
 
+        <ImageView
+            android:id="@+id/iv_edit"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="end"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_edit"
+            android:tint="@color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +47,7 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/enter_name">
+                        android:hint="@string/name">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/tv_name"
@@ -54,7 +63,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:hint="@string/enter_class">
+                        android:hint="@string/stclass">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/tv_class"
@@ -70,7 +79,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:hint="@string/enter_age">
+                        android:hint="@string/age">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/tv_age"
@@ -87,7 +96,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:hint="@string/enter_height">
+                        android:hint="@string/height">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/tv_height"
@@ -102,7 +111,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:hint="@string/enter_blood_group">
+                        android:hint="@string/blood_group">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/tv_bg"
@@ -138,7 +147,6 @@
 
         </LinearLayout>
 
-
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_profile"
             android:layout_width="80dp"
@@ -156,8 +164,6 @@
             app:layout_anchorGravity="center_vertical|right" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 </ScrollView>
-
-
-
-

@@ -18,11 +18,11 @@ public class StudentViewModel extends AndroidViewModel {
 
     public StudentViewModel(@NonNull Application application) {
         super(application);
-        studentRepository = new StudentRepository(application.getApplicationContext());
+        studentRepository = new StudentRepository(application);
     }
 
     public void insertStudent(StudentModel studentModel) {
-        studentRepository.insertStudent(studentModel);
+//        studentRepository.insertStudent(studentModel);
     }
 
     public void deleteStudent() {
