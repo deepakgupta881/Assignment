@@ -12,4 +12,9 @@
     <string name="enter_class">Enter Class</string>
     <string name="enter_name">Enter Name</string>
     <string name="save">Save</string>
+    <string name="std_rec">Students Record</string>
+    <string name="add_st">Add Student</string>
+    <string name="st_update">Update Student</string>
+    <string name="no_record_found">No Record Found</string>
+    <string name="add_background">Add Background</string>
 </resources>

@@ -11,7 +11,11 @@
         tools:layout="@layout/fragment_student_list">
         <action
             android:id="@+id/action_studentListFragment_to_addFragment"
-            app:destination="@id/addFragment" />
+            app:destination="@id/addFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_studentListFragment_to_updateFragment"
             app:destination="@id/updateFragment" />
@@ -23,7 +27,13 @@
         tools:layout="@layout/fragment_add_student">
         <action
             android:id="@+id/action_addFragment_to_studentListFragment"
-            app:destination="@id/studentListFragment" />
+            app:destination="@id/studentListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/action_addFragment_to_studentListFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
@@ -32,6 +42,12 @@
         tools:layout="@layout/fragment_update_student">
         <action
             android:id="@+id/action_updateFragment_to_studentListFragment"
-            app:destination="@id/studentListFragment" />
+            app:destination="@id/studentListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/action_addFragment_to_studentListFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

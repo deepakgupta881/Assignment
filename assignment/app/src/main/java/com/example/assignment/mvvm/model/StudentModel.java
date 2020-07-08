@@ -7,13 +7,6 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "tb_student")
 public class StudentModel {
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
@@ -24,6 +17,17 @@ public class StudentModel {
 
     @ColumnInfo(name = "student_class")
     private String studentClass;
+
+    public StudentModel(String studentName, String studentClass, int age, String height, String bloodGroup, String performance, String image, String userId) {
+        this.studentName = studentName;
+        this.studentClass = studentClass;
+        this.age = age;
+        this.height = height;
+        this.bloodGroup = bloodGroup;
+        this.performance = performance;
+        this.image = image;
+        this.userId = userId;
+    }
 
     @ColumnInfo(name = "age")
     private int age;
@@ -106,4 +110,63 @@ public class StudentModel {
     public void setImage(String image) {
         this.image = image;
     }
+
+    private int isDeletedFromLocalDb;
+
+    public int getIsDeletedFromLocalDb() {
+        return isDeletedFromLocalDb;
+    }
+
+    public void setIsDeletedFromLocalDb(int isDeletedFromLocalDb) {
+        this.isDeletedFromLocalDb = isDeletedFromLocalDb;
+    }
+
+    private int isStudentUpdate;
+
+    public StudentModel() {
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    private String userId;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getIsStudentUpdate() {
+        return isStudentUpdate;
+    }
+
+    public void setIsStudentUpdate(int isStudentUpdate) {
+        this.isStudentUpdate = isStudentUpdate;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentModel{" +
+                "userId='" + userId + '\'' +
+                ", id=" + id +
+                ", studentName='" + studentName + '\'' +
+                ", studentClass='" + studentClass + '\'' +
+                ", age=" + age +
+                ", height='" + height + '\'' +
+                ", bloodGroup='" + bloodGroup + '\'' +
+                ", performance='" + performance + '\'' +
+                ", image='" + image + '\'' +
+                ", sync=" + sync +
+                '}';
+    }
+
+
 }

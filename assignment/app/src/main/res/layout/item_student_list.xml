@@ -1,5 +1,6 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -7,9 +8,13 @@
     app:cardElevation="8dp">
 
     <RelativeLayout
+        android:id="@+id/rl_tap"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:padding="8dp">
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="8dp"
+        tools:targetApi="m">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_profile"
@@ -31,8 +36,8 @@
                 android:id="@+id/tv_name_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-            android:textColor="@color/black"
                 android:text="@string/name"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <TextView
@@ -41,8 +46,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_toEndOf="@+id/tv_name_label"
-                android:textColor="@color/black"
                 android:maxLines="2"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -51,31 +56,30 @@
                 android:id="@+id/tv_class_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_below="@+id/tv_name_label"
                 android:text="@string/stclass"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_class"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_below="@+id/tv_name"
                 android:layout_marginStart="6dp"
                 android:layout_toEndOf="@+id/tv_class_label"
                 android:maxLines="2"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold" />
-
 
             <TextView
                 android:id="@+id/tv_age_label"
                 android:layout_width="wrap_content"
-                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_class_label"
                 android:text="@string/age"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <TextView
@@ -83,10 +87,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_class"
-                android:textColor="@color/black"
                 android:layout_marginStart="6dp"
                 android:layout_toEndOf="@+id/tv_age_label"
                 android:maxLines="2"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -94,10 +98,10 @@
             <TextView
                 android:id="@+id/tv_height_label"
                 android:layout_width="wrap_content"
-                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_age_label"
                 android:text="@string/height"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <TextView
@@ -117,20 +121,20 @@
                 android:id="@+id/tv_bg_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_below="@+id/tv_height_label"
                 android:text="@string/blood_group"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_bg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_below="@+id/tv_height"
                 android:layout_marginStart="6dp"
                 android:layout_toEndOf="@+id/tv_bg_label"
                 android:maxLines="2"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -139,20 +143,20 @@
                 android:id="@+id/tv_performance_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_below="@+id/tv_bg_label"
                 android:text="@string/performance"
+                android:textColor="@color/black"
                 android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_performance"
-                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_bg"
                 android:layout_marginStart="6dp"
                 android:layout_toEndOf="@+id/tv_performance_label"
                 android:maxLines="2"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 

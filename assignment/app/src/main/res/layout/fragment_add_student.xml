@@ -1,163 +1,188 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <include layout="@layout/custom_toolbar" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <View
-            android:id="@+id/view"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:background="@color/colorPrimaryDark" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/views"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginBottom="20dp"
+                android:background="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:text="@string/add_background"
+                android:textColor="@color/white" />
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="120dp"
-            android:layout_marginEnd="8dp"
-            android:paddingStart="8dp"
-            tools:ignore="RtlSymmetry">
-
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_marginTop="130dp"
+                android:layout_marginEnd="8dp"
+                android:paddingStart="8dp"
+                tools:ignore="RtlSymmetry">
 
-                <LinearLayout
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="50dp"
                     android:orientation="vertical">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/enter_name">
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="50dp"
+                        android:orientation="vertical">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tv_name"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/text_input_name"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:maxLines="1" />
+                            android:hint="@string/enter_name">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:maxLines="1" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:hint="@string/enter_class">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tv_class"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/text_input_class"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:maxLines="1" />
+                            android:layout_marginTop="3dp"
+                            android:hint="@string/enter_class">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_class"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:maxLines="1" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:hint="@string/enter_age">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tv_age"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/text_input_age"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:inputType="number"
-                            android:maxLines="1" />
+                            android:layout_marginTop="3dp"
+                            android:hint="@string/enter_age">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_age"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLines="1" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:hint="@string/enter_height">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tv_height"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/text_input_height"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:maxLines="1" />
+                            android:layout_marginTop="3dp"
+                            android:hint="@string/enter_height">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_height"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionNext"
+                                android:maxLines="1" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:hint="@string/enter_blood_group">
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tv_bg"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/text_input_bg"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:maxLines="1" />
+                            android:layout_marginTop="3dp"
+                            android:hint="@string/enter_blood_group">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/et_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:imeOptions="actionDone"
+                                android:maxLines="1" />
 
-                    <Spinner
-                        android:id="@+id/spn_performance"
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:layout_marginTop="8dp"
-                        android:background="@drawable/outline"
-                        android:spinnerMode="dropdown"
-                        tools:listitem="@layout/item_performance" />
+                        </com.google.android.material.textfield.TextInputLayout>
 
-                    <Button
-                        android:id="@+id/btn_save"
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="15dp"
-                        android:background="@drawable/btn_background"
-                        android:text="@string/save"
-                        android:textAllCaps="true"
-                        android:textColor="@color/white" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/performance" />
 
-            </androidx.cardview.widget.CardView>
+                        <Spinner
+                            android:id="@+id/spn_performance"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/outline"
+                            android:popupBackground="@drawable/spn_background"
+                            android:spinnerMode="dropdown"
+                            tools:listitem="@layout/item_performance" />
 
+                        <Button
+                            android:id="@+id/btn_save"
+                            android:layout_width="120dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/btn_background"
+                            android:text="@string/save"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_profile"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_user"
-            app:layout_anchor="@id/view"
-            app:layout_anchorGravity="center_horizontal|bottom" />
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_add"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_add"
-            app:layout_anchor="@id/iv_profile"
-            app:layout_anchorGravity="center_vertical|right" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</ScrollView>
+            </LinearLayout>
 
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_profile"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:src="@drawable/ic_user"
+                app:layout_anchor="@id/views"
+                app:layout_anchorGravity="center_horizontal|bottom" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_add"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_add"
+                app:layout_anchor="@id/iv_profile"
+                app:layout_anchorGravity="center_vertical|right" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </ScrollView>
 
 
+</LinearLayout>

@@ -32,6 +32,7 @@ def nav_version = "2.3.0"
 def firebase_db_version = "19.3.1"
 def butter_knife_version = '10.0.0'
 def circle_image_version = '2.2.0'
+def rxJavaVersion = '2.1.1'
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -53,4 +54,7 @@ dependencies {
     implementation "com.jakewharton:butterknife:$butter_knife_version"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butter_knife_version"
     implementation "de.hdodenhof:circleimageview:$circle_image_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxJavaVersion"
+    implementation "android.arch.persistence.room:rxjava2:$lifeCycleExtensionsVersion"
+
 }

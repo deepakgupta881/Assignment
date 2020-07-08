@@ -4,11 +4,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.assignment.R;
 import com.example.assignment.mvvm.model.StudentModel;
 
@@ -32,13 +34,18 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-//        holder.studentData = studentList.get(position);
-//        holder.tvAge.setText(holder.studentData.getAge());
-//        holder.tvName.setText(holder.studentData.getStudentName());
-//        holder.tvBloodGroup.setText(holder.studentData.getBloodGroup());
-//        holder.tvHeight.setText(holder.studentData.getHeight());
-//        holder.tvPerformance.setText(holder.studentData.getPerformance());
-//        holder.tvStudentClass.setText(holder.studentData.getStudentClass());
+        holder.studentData = studentList.get(position);
+        holder.tvAge.setText(String.valueOf(holder.studentData.getAge()));
+        holder.tvName.setText(holder.studentData.getStudentName());
+        holder.tvBloodGroup.setText(holder.studentData.getBloodGroup());
+        holder.tvHeight.setText(holder.studentData.getHeight());
+        holder.tvPerformance.setText(holder.studentData.getPerformance());
+        holder.tvStudentClass.setText(holder.studentData.getStudentClass());
+        if (holder.studentData.getImage() != null && !holder.studentData.getImage().isEmpty())
+            Glide.with(holder.ivProfile.getContext()).load(holder.studentData.getImage()).into(holder.ivProfile);
+        else {
+            Glide.with(holder.ivProfile.getContext()).load(R.drawable.ic_user).into(holder.ivProfile);
+        }
     }
 
     public void setStudentList(List<StudentModel> studentList) {
@@ -50,9 +57,10 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
         return studentList.get(pos);
     }
 
+
     @Override
     public int getItemCount() {
-        return 2;
+        return studentList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -69,15 +77,16 @@ public class StudentListAdapter extends RecyclerView.Adapter<StudentListAdapter.
         public ViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
-            tvName = (TextView) itemView.findViewById(R.id.tv_name);
-            tvStudentClass = (TextView) itemView.findViewById(R.id.tv_class);
-            tvAge = (TextView) itemView.findViewById(R.id.tv_age);
-            tvHeight = (TextView) itemView.findViewById(R.id.tv_height);
-            tvBloodGroup = (TextView) itemView.findViewById(R.id.tv_bg);
-            tvPerformance = (TextView) itemView.findViewById(R.id.tv_performance);
-            ivProfile = (ImageView) itemView.findViewById(R.id.iv_profile);
-            itemView.setOnClickListener(v -> {
-                if (listener != null) listener.onItemClick(new StudentModel());
+            tvName = itemView.findViewById(R.id.tv_name);
+            tvStudentClass = itemView.findViewById(R.id.tv_class);
+            tvAge = itemView.findViewById(R.id.tv_age);
+            tvHeight = itemView.findViewById(R.id.tv_height);
+            tvBloodGroup = itemView.findViewById(R.id.tv_bg);
+            tvPerformance = itemView.findViewById(R.id.tv_performance);
+            ivProfile = itemView.findViewById(R.id.iv_profile);
+            RelativeLayout rlTap = itemView.findViewById(R.id.rl_tap);
+            rlTap.setOnClickListener(v -> {
+                if (listener != null) listener.onItemClick(studentList.get(getAdapterPosition()));
             });
         }
 
