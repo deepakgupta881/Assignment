@@ -30,10 +30,13 @@ import androidx.lifecycle.ViewModelProviders;
 import com.bumptech.glide.Glide;
 import com.example.assignment.R;
 import com.example.assignment.mvvm.model.StudentModel;
+import com.example.assignment.mvvm.view.activity.MainActivity;
 import com.example.assignment.mvvm.viewmodel.StudentViewModel;
 import com.example.assignment.utils.AppUtility;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -68,10 +71,6 @@ public class UpdateStudentFragment extends Fragment implements AdapterView.OnIte
     CircleImageView ivProfile;
     @BindView(R.id.iv_add)
     CircleImageView ivAdd;
-    @BindView(R.id.iv_back)
-    ImageView ivBack;
-    @BindView(R.id.tv_title)
-    TextView tvTitle;
     @BindView(R.id.text_input_name)
     TextInputLayout textInputName;
     @BindView(R.id.text_input_class)
@@ -105,8 +104,6 @@ public class UpdateStudentFragment extends Fragment implements AdapterView.OnIte
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         activity = getActivity();
-        ivBack.setVisibility(View.VISIBLE);
-        tvTitle.setText(R.string.st_update);
         studentViewModel = ViewModelProviders.of(this).get(StudentViewModel.class);
 
         adapter = new ArrayAdapter(activity, R.layout.item_performance, performanceList);
@@ -118,6 +115,9 @@ public class UpdateStudentFragment extends Fragment implements AdapterView.OnIte
         if (getArguments() != null) {
             studentViewModel.getStudentDetailById(getArguments().getString("userId"));
         }
+        TextView textView = activity.findViewById(R.id.tv_title);
+        textView.setText(R.string.st_update);
+        Objects.requireNonNull(((MainActivity) activity).getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         enableDisableFocus(false);
         setUpObservers();
     }
@@ -145,7 +145,7 @@ public class UpdateStudentFragment extends Fragment implements AdapterView.OnIte
                 tvAge.setText(String.valueOf(studentModels.getAge()));
                 tvBg.setText(studentModels.getBloodGroup());
                 image = studentModels.getImage();
-                if (!studentModels.getImage().isEmpty())
+                if (studentModels.getImage() != null && !studentModels.getImage().isEmpty())
                     Glide.with(activity).load(studentModels.getImage()).into(ivProfile);
                 spnPerformance.setSelection(adapter.getPosition(studentModels.getPerformance()));
             }
@@ -222,11 +222,11 @@ public class UpdateStudentFragment extends Fragment implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
     }
-
-    @OnClick(R.id.iv_back)
-    public void onViewClicked() {
-        activity.onBackPressed();
-    }
+//
+//    @OnClick(R.id.iv_back)
+//    public void onViewClicked() {
+//        activity.onBackPressed();
+//    }
 
     private boolean isValid() {
         name = String.valueOf(tvName.getText());

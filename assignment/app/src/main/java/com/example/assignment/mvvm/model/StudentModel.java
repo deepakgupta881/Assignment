@@ -1,7 +1,9 @@
 package com.example.assignment.mvvm.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "tb_student")
@@ -26,6 +28,34 @@ public class StudentModel {
         this.bloodGroup = bloodGroup;
         this.performance = performance;
         this.image = image;
+        this.userId = userId;
+    }
+
+
+    @Ignore
+    public StudentModel(StudentModel studentModel) {
+        this.id = studentModel.id;
+        this.studentName = studentModel.studentName;
+        this.studentClass = studentModel.studentClass;
+        this.age = studentModel.age;
+        this.height = studentModel.height;
+        this.bloodGroup = studentModel.bloodGroup;
+        this.performance = studentModel.performance;
+        this.userId = studentModel.userId;
+        this.image = studentModel.image;
+        this.sync = studentModel.sync;
+        this.isStudentUpdate = studentModel.isStudentUpdate;
+    }
+
+
+    @Ignore
+    public StudentModel(String studentName, String studentClass, int age, String height, String bloodGroup, String performance, String userId) {
+        this.studentName = studentName;
+        this.studentClass = studentClass;
+        this.age = age;
+        this.height = height;
+        this.bloodGroup = bloodGroup;
+        this.performance = performance;
         this.userId = userId;
     }
 
@@ -123,6 +153,7 @@ public class StudentModel {
 
     private int isStudentUpdate;
 
+    @Ignore
     public StudentModel() {
     }
 

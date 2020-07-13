@@ -10,7 +10,6 @@ import com.example.assignment.mvvm.model.StudentModel;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Completable;
@@ -42,10 +41,11 @@ public class StudentRepository {
         }).subscribeOn(Schedulers.io());
     }
 
-    public synchronized Completable deleteStudent(StudentModel studentModel, boolean networkConnected) {
+    public Completable deleteStudent(StudentModel studentModel, boolean networkConnected) {
         return Completable.fromAction(() -> {
             if (networkConnected) {
                 dbRef.child("students").child(studentModel.getUserId()).removeValue();
+                studentDao.delete(studentModel);
             } else {
                 deleteStudentFromFirebaseDao.insert(new DeleteStudentFirebase(studentModel.getUserId()));
                 studentDao.delete(studentModel);

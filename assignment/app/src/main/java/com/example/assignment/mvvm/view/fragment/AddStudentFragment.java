@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,10 +34,13 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.bumptech.glide.Glide;
 import com.example.assignment.R;
+import com.example.assignment.mvvm.view.activity.MainActivity;
 import com.example.assignment.mvvm.viewmodel.StudentViewModel;
 import com.example.assignment.utils.AppUtility;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -74,10 +78,10 @@ public class AddStudentFragment extends Fragment implements AdapterView.OnItemSe
     TextInputLayout textInputHeight;
     @BindView(R.id.text_input_bg)
     TextInputLayout textInputBg;
-    @BindView(R.id.iv_back)
-    ImageView ivBack;
-    @BindView(R.id.tv_title)
-    TextView tvTitle;
+    //    @BindView(R.id.iv_back)
+//    ImageView ivBack;
+//    @BindView(R.id.tv_title)
+//    TextView tvTitle;
 
     private Activity activity;
     private StudentViewModel studentViewModel;
@@ -94,6 +98,8 @@ public class AddStudentFragment extends Fragment implements AdapterView.OnItemSe
 
     public AddStudentFragment() {
     }
+
+    private ChangeTitle changeTitleListener;
 
     private final int REQUEST = 112;
     private String[] permission = new String[]{
@@ -118,8 +124,11 @@ public class AddStudentFragment extends Fragment implements AdapterView.OnItemSe
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         activity = getActivity();
-        ivBack.setVisibility(View.VISIBLE);
-        tvTitle.setText(R.string.add_st);
+        if (activity != null) {
+            TextView textView = activity.findViewById(R.id.tv_title);
+            textView.setText(R.string.add_st);
+            Objects.requireNonNull(((MainActivity) activity).getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        }
         studentViewModel = ViewModelProviders.of(this).get(StudentViewModel.class);
         spnPerformance.setOnItemSelectedListener(this);
         ArrayAdapter adapter = new ArrayAdapter(activity, R.layout.item_performance, performanceList);
@@ -196,7 +205,6 @@ public class AddStudentFragment extends Fragment implements AdapterView.OnItemSe
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-// TODO will add listener to communicate with activity
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -267,14 +275,13 @@ public class AddStudentFragment extends Fragment implements AdapterView.OnItemSe
         return allSuccess;
     }
 
-    @OnClick(R.id.iv_back)
-    public void onViewClicked() {
-        activity.onBackPressed();
-    }
+//    @OnClick(R.id.iv_back)
+//    public void onViewClicked() {
+//        activity.onBackPressed();
+//    }
 
-    public interface GetImageFromGallery {
-        void pickImageListener();
-
+    public interface ChangeTitle {
+        void changeTitle();
     }
 
 }

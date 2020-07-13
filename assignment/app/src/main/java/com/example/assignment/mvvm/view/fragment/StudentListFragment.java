@@ -20,12 +20,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.assignment.R;
 import com.example.assignment.mvvm.model.StudentModel;
+import com.example.assignment.mvvm.view.activity.MainActivity;
 import com.example.assignment.mvvm.view.adapter.StudentListAdapter;
 import com.example.assignment.mvvm.viewmodel.StudentViewModel;
 import com.example.assignment.utils.AppUtility;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,10 +38,6 @@ public class StudentListFragment extends Fragment implements StudentListAdapter.
     RecyclerView rvStudents;
     @BindView(R.id.fb_add_student)
     FloatingActionButton fbAddStudent;
-    @BindView(R.id.iv_back)
-    ImageView ivBack;
-    @BindView(R.id.tv_title)
-    TextView tvTitle;
     @BindView(R.id.tv_no_record)
     TextView tvNoRecord;
     @BindView(R.id.container)
@@ -73,8 +71,9 @@ public class StudentListFragment extends Fragment implements StudentListAdapter.
         rvStudents.setAdapter(studentListAdapter);
         rvStudents.setHasFixedSize(true);
         studentViewModel.getStudents();
-        ivBack.setVisibility(View.GONE);
-        tvTitle.setText(R.string.std_rec);
+        TextView textView = activity.findViewById(R.id.tv_title);
+        textView.setText(R.string.std_rec);
+        Objects.requireNonNull(((MainActivity) activity).getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
         setUpItemTouchListener();
     }
 
