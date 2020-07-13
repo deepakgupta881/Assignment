@@ -1,6 +1,6 @@
 package com.example.assignment.mvvm.model;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
@@ -182,6 +182,18 @@ public class StudentModel {
 
     public void setIsStudentUpdate(int isStudentUpdate) {
         this.isStudentUpdate = isStudentUpdate;
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        StudentModel studentModel = (StudentModel) obj;
+        return studentModel.getUserId().equals(getUserId());
     }
 
     @Override

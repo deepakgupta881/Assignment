@@ -27,6 +27,7 @@ public class StudentRepository {
         StudentDatabase studentDatabase = StudentDatabase.getDatabaseInstance(context);
         studentDao = studentDatabase.studentDao();
         deleteStudentFromFirebaseDao = studentDatabase.deleteStudentFromFirebaseDao();
+        //Just comment firebase instance while writing test case
         dbRef = FirebaseDatabase.getInstance().getReference();
     }
 

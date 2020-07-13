@@ -23,45 +23,6 @@ public class StudentDaoTest extends StudentDBTest {
     @Rule
     public InstantTaskExecutorRule rule = new InstantTaskExecutorRule();
 
-    @Test
-    public void insertAndReadValueTest() {
-
-        //Given Two sets of data
-        StudentModel studentModel = new StudentModel(StudentTestUtil.STUDENT_1);
-        StudentModel studentModelTwo = new StudentModel(StudentTestUtil.STUDENT_2);
-
-        // insert
-        getStudentDao().insert(studentModel);
-        getStudentDao().insert(studentModelTwo);
-
-        // read all Student list
-        Single<List<StudentModel>> allList = getStudentDao().getAllStudents();
-        allList.subscribe(new SingleObserver<List<StudentModel>>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onSuccess(List<StudentModel> studentModels) {
-                StudentModel studentModel1 = studentModels.get(0);
-                // check student mock properties
-                assertThat(studentModel1.getStudentName(), is("Deepak"));
-                assertThat(studentModel1.getStudentClass(), is("X"));
-                assertThat(studentModel1.getAge(), is(29));
-                assertThat(studentModel1.getHeight(), is("5ft"));
-                assertThat(studentModel1.getBloodGroup(), is("O+"));
-                assertThat(studentModel1.getPerformance(), is("Good"));
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                System.out.print(e.getMessage());
-            }
-        });
-
-
-    }
 
     @Test
     public void insertDeleteAndReadValueTest() {
@@ -205,6 +166,45 @@ public class StudentDaoTest extends StudentDBTest {
 
     }
 
+    @Test
+    public void insertAndReadValueTest() {
+
+        //Given Two sets of data
+        StudentModel studentModel = new StudentModel(StudentTestUtil.STUDENT_1);
+        StudentModel studentModelTwo = new StudentModel(StudentTestUtil.STUDENT_2);
+
+        // insert
+        getStudentDao().insert(studentModel);
+        getStudentDao().insert(studentModelTwo);
+
+        // read all Student list
+        Single<List<StudentModel>> allList = getStudentDao().getAllStudents();
+        allList.subscribe(new SingleObserver<List<StudentModel>>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onSuccess(List<StudentModel> studentModels) {
+                StudentModel studentModel1 = studentModels.get(0);
+                // check student mock properties
+                assertThat(studentModel1.getStudentName(), is("Deepak"));
+                assertThat(studentModel1.getStudentClass(), is("X"));
+                assertThat(studentModel1.getAge(), is(29));
+                assertThat(studentModel1.getHeight(), is("5ft"));
+                assertThat(studentModel1.getBloodGroup(), is("O+"));
+                assertThat(studentModel1.getPerformance(), is("Good"));
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                System.out.print(e.getMessage());
+            }
+        });
+
+
+    }
 
 }
 

@@ -22,7 +22,7 @@ public abstract class StudentDatabase extends RoomDatabase {
 
     public static synchronized StudentDatabase getDatabaseInstance(final Context context) {
         if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+            INSTANCE = Room.databaseBuilder(context,
                     StudentDatabase.class, "student_database")
                     .build();
         }

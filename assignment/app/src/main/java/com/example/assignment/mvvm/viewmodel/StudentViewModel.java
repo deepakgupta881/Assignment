@@ -24,6 +24,7 @@ public class StudentViewModel extends AndroidViewModel {
     private StudentRepository studentRepository;
     private CompositeDisposable compositeDisposable;
 
+
     public StudentViewModel(@NonNull Application application) {
         super(application);
         studentRepository = new StudentRepository(application);
@@ -66,7 +67,7 @@ public class StudentViewModel extends AndroidViewModel {
         compositeDisposable.dispose();
     }
 
-    public MutableLiveData<List<StudentModel>> getAllStudents() {
+    public LiveData<List<StudentModel>> getAllStudents() {
         return allStudents;
     }
 
