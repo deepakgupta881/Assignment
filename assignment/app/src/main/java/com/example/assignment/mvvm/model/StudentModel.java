@@ -49,7 +49,7 @@ public class StudentModel {
 
 
     @Ignore
-    public StudentModel(String studentName, String studentClass, int age, String height, String bloodGroup, String performance, String userId) {
+    public StudentModel(String studentName, String studentClass, int age, String height, String bloodGroup, String performance, String userId, int sync) {
         this.studentName = studentName;
         this.studentClass = studentClass;
         this.age = age;
@@ -57,6 +57,7 @@ public class StudentModel {
         this.bloodGroup = bloodGroup;
         this.performance = performance;
         this.userId = userId;
+        this.sync = sync;
     }
 
     @ColumnInfo(name = "age")

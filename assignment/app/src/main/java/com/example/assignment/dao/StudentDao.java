@@ -35,6 +35,13 @@ public interface StudentDao {
     @Delete
     void delete(StudentModel student);
 
+    @Query("DELETE  FROM tb_student Where userId=:id")
+    void deleteDataById(String id);
+
     @Update
     void update(StudentModel student);
+
+
+    @Query("UPDATE tb_student SET student_name=:studentName Where userId=:id")
+    void update(String id, String studentName);
 }
